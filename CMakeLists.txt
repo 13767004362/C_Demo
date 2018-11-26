@@ -3,4 +3,4 @@ project(demo)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(demo sample/client.cpp sample/Book.h sample/Book.cpp)
+add_executable(demo   day20181123/test8.cpp)
