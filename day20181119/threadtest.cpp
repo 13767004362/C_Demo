@@ -35,7 +35,7 @@ void  test2(){
 int main(){
     thread th1(test1);
     thread th2(test2);
-    //　需要注意的是线程对象执行了join后就不再joinable了，所以只能调用join一次。
+    //　需要注意的是线程对象执行了join后就不再join able了，所以只能调用join一次。
     th1.join();
     th2.join();
     cout << "main运行在MainThraed \n\n";
