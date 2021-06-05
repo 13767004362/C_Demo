@@ -3,4 +3,4 @@ project(demo)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(demo  studyDemo/namespace/NamespaceDemo.cpp studyDemo/namespace/NamespaceDemo.cpp)
+add_executable(demo  studyDemo/reference/ReferenceDemo.cpp )
