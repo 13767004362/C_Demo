@@ -25,11 +25,11 @@ void testMethodReturnPointer();
 int* doubleMultiply(int * a);
 
 int main() {
-    testCustomPointer();
+    //testCustomPointer();
     //testNullPointer();
      //testPointerCalculation();
     //testPointerArray();
-   // testPointerAndPointer();
+   testPointerAndPointer();
 
   // testMethodReturnPointer();
     return 0;
