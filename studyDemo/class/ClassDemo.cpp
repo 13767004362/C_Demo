@@ -5,10 +5,20 @@
  */
 
 #include "ClassDemo.h"
+
+#include "SafeCopy.h"
+#include "SingleObject.h"
 #include <iostream>
 #include "string"
 
 using namespace std;
+/**
+ * 句点运算符(.)来访问类的成员和方法
+ *
+ * 类包含原始指针成员(char * 等)，必须编写复制构造函数和复制赋值运算符，进行深度拷贝。
+ *
+ * this 包含当前对象的地址，换句话说，其&object
+ */
 
 void testClass() {
     string name = "HeXinGen";
@@ -47,9 +57,14 @@ void testCopyClassPointer() {
     cout<< " static var: "<<Copy::getTotal()<<endl;
 }
 
+
+
 int main() {
-    testClass();
+    //testClass();
     //testCopyClassPointer();
     //testFriend();
+    //testPerson();
+    testSingleObject();
+
     return 0;
 }

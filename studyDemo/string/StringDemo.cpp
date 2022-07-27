@@ -72,7 +72,7 @@ void testStringContent(){
  * 测试string 与char * 相互转换
  */
 void testStringToChar(){
-    char  *c="hello";
+    const char  *c="hello";
     //直接赋值
     string  str1=c;
     cout<<"str: "<<str1<<endl;
@@ -111,7 +111,25 @@ void test(){
     int size= strlen(b);
     cout<<" old "<<b<<" , "<<temp<<endl;
 }
+
+/**
+ *   == 内存地址的比较，string 是可以直接比较的。
+ *   但char[] 是需要 strcmp() 函数比较, 因数组本身是一个指针，*指针 是指向数组的首元素。
+ * @return
+ */
+
+void testEqual(){
+    char  a[] ="123", b[]="123";
+    string c="123",d="123";
+    cout<<" char[]  == result 1 is true: "<<(a==b)<<endl;
+    cout<<" char[]  strcmp()  result 0 is true : "<<strcmp(a,b)<<endl;
+    cout<<" string  == result 1 is true : "<<(c==d)<<endl;
+    cout<<" string[]  compare()  result 0 is true: "<<c.compare(d) <<endl;
+
+}
+
+
 int main(){
-      test();
+    testEqual();
     return 0;
 };

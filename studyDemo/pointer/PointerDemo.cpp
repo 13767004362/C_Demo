@@ -24,17 +24,59 @@ void getAverage(int *array, int * size);
 void testMethodReturnPointer();
 int* doubleMultiply(int * a);
 
+
+void testPointer();
+
+void testConstPointer();
+
 int main() {
     //testCustomPointer();
-    //testNullPointer();
+    testNullPointer();
      //testPointerCalculation();
     //testPointerArray();
-   testPointerAndPointer();
+  // testPointerAndPointer();
+ // testPointer();
+ //testConstPointer();
 
   // testMethodReturnPointer();
     return 0;
 }
+/**
+ *  指针赋值；
+ *  指针指向内存块进行赋值；
+ */
+void testPointer(){
+    int i=10;
+    int * i_p=&i;//通过&引用运算符将i变量的地址赋值给指针
 
+    *i_p=12;//通过*解除引用运算符,将新值设置给指针指向的内存。
+    cout<<" i "<<i <<" , "<<*i_p <<", "<<i_p<<endl;
+    int c=100;
+    i_p=&c;// 将新的内存地址设置给指针变量
+    cout<<" i "<<i <<" , "<<*i_p <<", "<<i_p<<endl;
+
+};
+/**
+ * const 关键字用于指针：
+ * 1.指针指向的内存地址是常量，可修改指向地址的数据值。 例如： int * const pointer=&a;
+ * 2.指针指向地址的值是常量，可修改指向的地址；例如： const int * pointer=&a;
+ * 3.指针指向的地址和指向地址的数据值都是常量；：例如 const int* const pointer=&a;
+ *
+ */
+void testConstPointer(){
+    int a=1,b=2,c=3;
+    int * const  a_pointer=&a;
+    *a_pointer=11;//只能修改指针指向内存的数据值
+    cout<<"int * const "<<*a_pointer<<endl;
+    const int * b_pointer=&b;
+    b_pointer=&a; //只能修改指针指向的内存地址值；
+    cout<<"const int * "<<*b_pointer<<endl;
+    const  int  * const  c_pointer=&c;//啥也不能修改
+    cout<<"const int * const "<<*c_pointer<<endl;
+
+
+
+}
 /**
  * 自定义指针：
  * 1.声明指针
@@ -127,7 +169,7 @@ void testPointerArray() {
         cout << "pointerArray[ " << i <<"]"<<", pointer: "<< pointer[i]<< " , value: " << *pointer[i] << endl;
     }
     // 一个指向字符的指针数组来存储一个字符串列表
-    char *strPointer[size] ={"10Str","100Str","1000Str"};
+   char *strPointer[size] ={"10Str","100Str","1000Str"};
     for (int i = 0; i < size ; ++i) {
         char * charPointer=strPointer[i];
         cout << "pointerArray[ " << i <<"]"<<", pointer: "<< charPointer<< " , value: " << &strPointer[i] << endl;

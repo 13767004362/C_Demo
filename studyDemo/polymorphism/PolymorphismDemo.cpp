@@ -6,6 +6,10 @@
 
 #include "PolymorphismDemo.h"
 
+/**
+ *  多态问题
+ */
+
 
 void test() {
     Man man;
@@ -14,10 +18,18 @@ void test() {
     person->sayHello();
     //测试后期绑定
     person->work();
+
 }
+
+void test1(){
+    Person * person=new Man();
+    delete person;
+}
+
 
 int main() {
     test();
+    test1();
     return 0;
 }
 

@@ -4,6 +4,8 @@
  * @description ：
  */
 #include <iostream>
+#include "ReferenceDemo.h"
+using namespace Reference;
 
 using namespace std;
 
@@ -16,12 +18,32 @@ bool &compareMax(int &i);
 void testPointerReference();
 
 void pointerReference(int *&p);
+void testReference(int & change);
+
+
+/**
+ * const 修饰引用，禁止改动对应的数据值
+ * @param w
+ * @param h
+ * @param area
+ */
+void testConstRefrence(const int & w,const  int & h,int & area){
+     area=w*h;
+}
 
 
 int main() {
     // testReference();
     // testMethodReference();
-    testPointerReference();
+   // testPointerReference();
+
+/*    int area;
+    testConstRefrence(1,2,area);
+    cout<<"area "<<area<<endl;*/
+
+   Change change;
+   change.testChangeValue();
+
     return 0;
 }
 
@@ -84,4 +106,7 @@ void testPointerReference() {
     cout << p << endl;
     pointerReference(p);
     cout << " i " << i << endl;
+}
+void testReference(int & change){
+    change=110;
 }

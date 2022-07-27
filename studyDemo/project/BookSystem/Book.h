@@ -15,21 +15,21 @@ namespace ComBook {
      */
     class Book {
     private:
-        string name;
-        string description;
+        string & name;
+        string & description;
 
     public:
         Book(){
 
         }
-        Book(string name, string description) {
+        Book(const string & name, const string & description) {
             this->description = description;
             this->name = name;
         }
-        string getName(){
+        string& getName() const {
             return name;
         }
-        string  getDescription(){
+        string&  getDescription() const {
             return description;
         }
 

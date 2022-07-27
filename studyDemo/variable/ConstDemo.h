@@ -3,6 +3,9 @@
  * @date ： 2021/11/10
  * @description ：
  */
+
+
+// ifndef 等同于 if-no-def 条件语句，当未定义宏时，才执行接下来操作。
  #ifndef DEMO_CONSTDEMO_H
 #define DEMO_CONSTDEMO_H
 

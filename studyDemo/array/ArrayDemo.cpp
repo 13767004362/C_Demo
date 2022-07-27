@@ -7,6 +7,7 @@
 #include "ArrayDemo.h"
 #include <iostream>
 #include "cstring"
+#include <vector>
 using  namespace  std;
 
 /**
@@ -77,9 +78,29 @@ void testArray2(){
     cout<<&array<<" value:"<<*array;
 
 }
+/**
+ * 数组是指定长度的相同类型的集合，但有些时候，需要在运行时动态添加容积，这可能使用后到动态数组，类似vector
+ *
+ */
+void testDynamicArray(){
+
+    vector<int > dyArray(3);// 创建一个初始化容积为3的vector
+    dyArray[0]=1;
+    dyArray[1]=11;
+    dyArray[2]=111;
+
+    cout<<" vector size is :"<<dyArray.size()<<" , "<<dyArray[dyArray.size()-1]<<endl;
+
+    dyArray.push_back(1111);// 动态的再向尾部添加一个元素
+
+    cout<<" vector size is :"<<dyArray.size()<<" , "<<dyArray[dyArray.size()-1]<<endl;
+
+}
+
 
 int main(){
    // testArray();
-   testArray2();
+   //testArray2();
+   testDynamicArray();
     return 0;
 }

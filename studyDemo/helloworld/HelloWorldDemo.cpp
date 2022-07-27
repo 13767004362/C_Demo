@@ -26,6 +26,5 @@ int main(){
     cin  >>name;//将控制台输入的字符串,存储到name变量中
     cout << name;
     cout <<" say :hello world"<<endl;
-
     return 0;
 }

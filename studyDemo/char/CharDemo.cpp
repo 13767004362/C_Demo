@@ -53,7 +53,10 @@ void test2() {
     cout << " copy data: " << copy << endl;
 
 }
-
+/**
+ * c 风格字符串是一种特殊的字符串数组 char[]
+ * @return
+ */
 int main() {
     //test();
     // test1();

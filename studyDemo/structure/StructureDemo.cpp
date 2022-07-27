@@ -23,8 +23,7 @@ void printBookDetail(Books * books){
 }
 
 
-
-int main(){
+void testBookStructure(){
     Books book;
     book.bookId=10086;
     book.name="learn c++";
@@ -35,8 +34,16 @@ int main(){
     book.author=author;
     book.description=" this is chinese document ";
     printBookDetail(&book);
+}
 
+void testStructure2(){
+    // 调用结构的传参构造函数
+    Author author1("HeXinGen",18);
+    cout<<author1.name<<" , "<<author1.age<<endl;
+}
 
-
+int main(){
+    //testBookStructure();
+    testStructure2();
     return 0;
 }

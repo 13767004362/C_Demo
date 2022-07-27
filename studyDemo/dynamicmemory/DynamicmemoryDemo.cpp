@@ -2,6 +2,17 @@
  * @author ： HeXinGen
  * @date ： 2021/6/15
  * @description ：
+ *
+ * 为啥要使用动态内存分配：
+ * 像数组的内存分配是静态和固定的，可能遇到超出容量或者使用部分容量的情况；
+ * 为了更好的根据用户需求来分配内存，采用动态分配内存。
+ *
+ * new 关键字来分配内存块，若是成功new 将返回指向一个指针，指向分配的内存，否则会引发异常
+ *
+ * 对于使用new[...]分配的内存块，需要使用delete[]来释放；
+ * 对于使用new为单个元素分配的内存，需要使用delete来释放；
+ *
+ *
  */
 #include <iostream>
 using namespace  std;
@@ -99,10 +110,41 @@ void test2(){
     //释放内存
     delete [] box;
 }
+/**
+ * 当使用new 关键字时，失败了会抛出异常
+ * 如何正确的使用new 关键字，
+ * 一种是加
+ * try {
+ * }
+ * catch(bad_alloc){
+ * }
+ *
+ *另外一种：
+ * new(nothrow) 它在分配内存失败时返回Null
+ */
+void testSafeNewMemory(){
+    long long int large=1111111111111111;
+    int * i=NULL;
+    try {
+        i=new int[large];
+        delete[] i;
+    }catch (bad_alloc){
+        cout << "Memory allocation failed. Ending program" << endl;
+    }
+    i=new(nothrow)  int[large];//使用 new(nothrow)，它在分配内存失败时返回 NULL
+    if (i){
+        delete[] i;
+    }else{
+        cout << "Memory allocation failed. Ending program" << endl;
+    }
+
+
+}
 
 int main(){
    // test();
-   test1();
+  // test1();
    //test2();
+   testSafeNewMemory();
     return 0;
 }

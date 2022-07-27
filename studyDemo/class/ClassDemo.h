@@ -109,16 +109,23 @@ Worker::~Worker() {
 class Copy {
 private:
     char *name;
+    int age=18;
 public:
     // 声明一个静态变量
     static  int total;
     /**
      * 默认初始化Null 指针
+     *  构造函数 ：成员属性,属性2
+     * 初始化列表
      */
-    Copy() : name(NULL) {
+    Copy() : name(NULL),age(18){
         ++total;
     }
-
+    /**
+     * 每当对象被复制时，编译器都将调用复制构造函数。
+     * 复制构造函数接受一个以引用
+     * @param copy
+     */
     Copy(const Copy *copy) : name(new char[strlen(copy->name) + 1]) {
         strcpy(name, copy->name);
         ++total;
@@ -140,6 +147,9 @@ public:
         return *this;
     }
 
+    /**
+     * 析构函数：含腭化符号（～）
+     */
     ~Copy() {
         if (name) {
             delete[] name;
